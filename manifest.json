@@ -1,0 +1,22 @@
+{
+  "name": "Is it on Sci-Hub?",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "hello.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "host_permissions": ["https://sci-hub.se/*"],
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://scopus.upc.elogim.com/*"
+      ]
+    }
+  ]
+}
