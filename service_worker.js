@@ -3,6 +3,9 @@ chrome.runtime.onMessage.addListener(function (message, sender, senderResponse) 
         return res.text();
     }).then(res => {
         senderResponse(res);
+    }).catch(error => {
+        senderResponse(false);
+        return false
     })
     return true
 });

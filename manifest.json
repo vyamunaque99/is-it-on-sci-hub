@@ -7,7 +7,7 @@
     "default_popup": "hello.html",
     "default_icon": "hello_extensions.png"
   },
-  "host_permissions": ["http://127.0.0.1:8000/dois/*"],
+  "host_permissions": ["http://144.22.35.191:8000/dois/*"],
   "background": {
     "service_worker": "service_worker.js"
   },
@@ -15,7 +15,7 @@
     {
       "js": ["scripts/content.js"],
       "matches": [
-        "https://scopus.upc.elogim.com/*"
+        "https://scopus.upc.elogim.com/record/*"
       ],
       "run_at": "document_idle"
     }
