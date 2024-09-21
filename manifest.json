@@ -5,7 +5,7 @@
   "manifest_version": 3,
   "action": {
     "default_popup": "hello.html",
-    "default_icon": "hello_extensions.png"
+    "default_icon": "icon.png"
   },
   "host_permissions": ["http://144.22.35.191:8000/dois/*"],
   "background": {

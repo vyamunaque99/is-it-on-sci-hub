@@ -23,12 +23,12 @@ function myInitCode() {
   chrome.runtime.sendMessage({ url: doi_finder_full_url }, response => {
     var json = JSON.parse(response);
     if (json.length > 0) {
-      download_span.textContent = "Descargar " + doi;
+      download_span.textContent = "Download " + doi;
       download_button.setAttribute("onclick", "window.open('" + doi_url + "')");
       download_button.setAttribute("target", "_blank")
     } else {
-      if (response === false) download_span.textContent = "API No diponible";
-      else download_span.textContent = "No disponible :(";
+      if (response === false) download_span.textContent = "API not Available";
+      else download_span.textContent = "Paper not Available :(";
 
     }
   })
