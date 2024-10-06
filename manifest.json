@@ -15,7 +15,8 @@
     {
       "js": ["scripts/content.js"],
       "matches": [
-        "https://scopus.upc.elogim.com/record/*"
+        "https://scopus.upc.elogim.com/record/*",
+        "https://ieeexplore.ieee.org/document/*"
       ],
       "run_at": "document_idle"
     }

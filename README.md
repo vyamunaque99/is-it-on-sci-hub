@@ -12,9 +12,16 @@
 
 Tired of searching for research articles that are ultimately unavailable on Sci-Hub?. We have a chrome extension designed for your needs. Is it on Sci-hub is a Chrome extension that does a DOI-Based search to enable a download button in your research database.
 
+## Scopus
 <p align="center">
-  <img src="extension-demo.png" />
+  <img src="extension-demo-scopus.png" />
 </p>
+
+## IEEExplore
+<p align="center">
+  <img src="extension-demo-ieeexplore.png" />
+</p>
+
 
 # Install
 

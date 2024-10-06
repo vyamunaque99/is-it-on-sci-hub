@@ -1,12 +1,53 @@
-if (document.readyState !== 'loading') {
-  const myTimeout = setTimeout(myInitCode, 600);
-} else {
-  document.addEventListener('DOMContentLoaded', function () {
-    const myTimeout = setTimeout(myInitCode, 600);
-  });
+const url=window.location.href
+
+if(url.includes('scopus')){
+  if (document.readyState !== 'loading') {
+    const myTimeout = setTimeout(add_scopus_button, 600);
+  } else {
+    document.addEventListener('DOMContentLoaded', function () {
+      const myTimeout = setTimeout(add_scopus_button, 600);
+    });
+  }
 }
 
-function myInitCode() {
+if(url.includes('ieeexplore')){
+  add_ieeexplore_button()
+}
+
+
+function add_ieeexplore_button(){
+  console.log('IEEXplore')
+  const doi = document.getElementsByClassName("u-pb-1 stats-document-abstract-doi")[0].innerText.substring(5);
+  const sci_hub_url = "https://sci-hub.se/"
+  const doi_url = sci_hub_url + doi;
+  const doi_finder_url = "http://144.22.35.191:8000/dois/";
+  const doi_finder_full_url = doi_finder_url + doi;
+  const download_button = document.createElement("button");
+  const download_div_1 = document.createElement("div");
+  const download_xpl = document.createElement("xpl-cite-this-modal");
+  const download_div_2 = document.createElement("div");
+  download_button.setAttribute("class","xpl-btn-secondary");
+  download_div_2.setAttribute("style","margin-left: 17px;");
+  download_div_1.appendChild(download_button);
+  download_xpl.appendChild(download_div_1);
+  download_div_2.appendChild(download_xpl);
+  chrome.runtime.sendMessage({ url: doi_finder_full_url }, response => {
+    var json = JSON.parse(response);
+    if (json.length > 0) {
+      download_button.textContent = "Download " + doi;
+      download_button.setAttribute("onclick", "window.open('" + doi_url + "')");
+      download_button.setAttribute("target", "_blank")
+    } else {
+      if (response === false) download_button.textContent = "API not Available";
+      else download_button.textContent = "Paper not Available :(";
+    }
+  })
+  const menu = document.getElementsByClassName("u-mb-1 u-mt-05 btn-container")[0];
+  menu.insertAdjacentElement("beforeend", download_div_2);
+}
+
+
+function add_scopus_button() {
   const description = document.getElementsByTagName("dd");
   const doi = description[3].innerText;
   const sci_hub_url = "https://sci-hub.se/"
@@ -42,3 +83,5 @@ function myInitCode() {
   }
 
 }
+
+
