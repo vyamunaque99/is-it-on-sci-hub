@@ -10,7 +10,7 @@
     <em>Chrome extension for academic piracy designed to improve researchers' workflows</em>
 </p>
 
-Tired of searching for research articles that are ultimately unavailable on Sci-Hub?. We have a chrome extension designed for your needs. Is it on Sci-hub is a Chrome extension that does a DOI-Based search to enable a download button in your research database.
+Tired of searching for research articles that are ultimately unavailable on Sci-Hub?. We have a tool designed for your needs. Is it on Sci-hub is a Chrome extension that does a DOI-Based search to enable a download button in your research database.
 
 ## Scopus
 <p align="center">
