@@ -16,7 +16,8 @@
       "js": ["scripts/content.js"],
       "matches": [
         "https://scopus.upc.elogim.com/record/*",
-        "https://ieeexplore.ieee.org/document/*"
+        "https://ieeexplore.ieee.org/document/*",
+        "https://webofscience.upc.elogim.com/wos/woscc/full-record/*"
       ],
       "run_at": "document_idle"
     }
