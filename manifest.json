@@ -1,7 +1,7 @@
 {
   "name": "Is it on Sci-Hub?",
   "description": "Base Level Extension",
-  "version": "0.5",
+  "version": "0.6",
   "manifest_version": 3,
   "action": {
     "default_popup": "hello.html",
@@ -17,7 +17,8 @@
       "matches": [
         "https://scopus.upc.elogim.com/record/*",
         "https://ieeexplore.ieee.org/document/*",
-        "https://webofscience.upc.elogim.com/wos/woscc/full-record/*"
+        "https://webofscience.upc.elogim.com/wos/woscc/full-record/*",
+        "https://pubmed.ncbi.nlm.nih.gov/*"
       ],
       "run_at": "document_idle"
     }
