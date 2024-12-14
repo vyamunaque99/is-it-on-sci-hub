@@ -4,21 +4,25 @@
   "version": "0.6",
   "manifest_version": 3,
   "action": {
-    "default_popup": "hello.html",
+    "default_popup": "src/hello.html",
     "default_icon": "icon.png"
   },
-  "host_permissions": ["http://144.22.35.191:8000/dois/*"],
+  "host_permissions": [
+    "http://144.22.35.191:8000/dois/*",
+    "https://paypal.me/*",
+    "https://cdn.jsdelivr.net/*"
+  ],
   "background": {
-    "service_worker": "service_worker.js"
+    "service_worker": "src/service_worker.js"
   },
   "content_scripts": [
     {
-      "js": ["scripts/content.js"],
+      "js": ["src/scripts/content.js"],
       "matches": [
-        "https://scopus.upc.elogim.com/record/*",
-        "https://ieeexplore.ieee.org/document/*",
-        "https://webofscience.upc.elogim.com/wos/woscc/full-record/*",
-        "https://pubmed.ncbi.nlm.nih.gov/*"
+        "https://*.elogim.com/record/*", 
+        "https://ieeexplore.ieee.org/document/*", 
+        "https://*.elogim.com/wos/woscc/full-record/*", 
+        "https://pubmed.ncbi.nlm.nih.gov/*" 
       ],
       "run_at": "document_idle"
     }
