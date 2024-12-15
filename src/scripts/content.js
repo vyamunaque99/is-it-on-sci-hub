@@ -267,11 +267,11 @@ function add_scopus_button() {
       "Stack-module__tT3r4 Stack-module__Y4rmW"
     );
     if (menu.length <= 13) {
-      menu[6].insertAdjacentElement("beforeend", download_button);
-    } else if (menu.length <= 20) {
-      menu[6].insertAdjacentElement("beforeend", download_button);
-    } else {
       menu[7].insertAdjacentElement("beforeend", download_button);
+    } else if (menu.length <= 20) {
+      menu[7].insertAdjacentElement("beforeend", download_button);
+    } else {
+      menu[8].insertAdjacentElement("beforeend", download_button);
     }
   } catch (error) {
     console.log.error;
