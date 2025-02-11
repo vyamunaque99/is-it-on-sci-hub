@@ -1,7 +1,7 @@
 {
   "name": "Is it on Sci-Hub?",
   "description": "Download any paper from any database",
-  "version": "0.75",
+  "version": "0.8",
   "manifest_version": 3,
   "action": {
     "default_popup": "src/hello.html",
