@@ -1,7 +1,7 @@
 {
   "name": "Is it on Sci-Hub?",
-  "description": "Base Level Extension",
-  "version": "0.7",
+  "description": "Download any paper from any database",
+  "version": "0.75",
   "manifest_version": 3,
   "action": {
     "default_popup": "src/hello.html",
@@ -20,6 +20,7 @@
         "src/scripts/content.js"
       ],
       "matches": [
+        "https://openurl.ebsco.com/*",
         "https://*.elogim.com/record/*",
         "https://ieeexplore.ieee.org/document/*",
         "https://*.elogim.com/wos/woscc/full-record/*",

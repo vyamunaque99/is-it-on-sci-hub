@@ -30,6 +30,47 @@ if (url.includes("pubmed")) {
   add_pubmed_button();
 }
 
+if (url.includes("ebsco") && (url.includes("detail") || url.includes("contentitem"))) {
+  if (document.readyState !== "loading") {
+    const myTimeout = setTimeout(add_ebsco_button, 600);
+  } else {
+    document.addEventListener("DOMContentLoaded", function () {
+      const myTimeout = setTimeout(add_ebsco_button, 600);
+    });
+  }
+}
+
+function add_ebsco_button() {
+  console.log("EBSCO");
+  const doi = document.getElementsByTagName("dd")[7].innerText;
+  console.log(doi);
+  const sci_hub_url = "https://sci-hub.se/";
+  const doi_url = sci_hub_url + doi;
+  const doi_finder_full_url = doi_finder_url + doi;
+  const download_button = document.createElement("button");
+  download_button.setAttribute("data-auto", "cta-button");
+  download_button.setAttribute("class", "eb-button eb-button--solid access-control__cta-button");
+  download_button.setAttribute("type", "button");
+  download_button.setAttribute("style", "margin-bottom: 10px;");
+  chrome.runtime.sendMessage({ url: doi_finder_full_url }, (response) => {
+    var json = JSON.parse(response);
+    if (json.length > 0) {
+      download_button.textContent = "Download " + doi;
+      download_button.setAttribute(
+        "onclick",
+        "window.open('" + doi_url + "')"
+      );
+      download_button.setAttribute("target", "_blank");
+    } else {
+      if (response === false)
+        download_button.textContent = "API not Available";
+      else download_button.textContent = "Paper not Available :(";
+    }
+  });
+  const menu = document.getElementsByClassName("access-control")[0];
+  menu.insertAdjacentElement("afterbegin", download_button);
+}
+
 function add_webofscience_button() {
   console.log("WebOfScience");
   try {
